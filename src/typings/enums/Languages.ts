@@ -10,4 +10,11 @@ export declare type Languages =
   | "ru"
   | "nl"
   | "ko"
-  | "ja";
+  | "ja"
+  | "ar"
+  | "hi"
+  | "fa"
+  | "ta"
+  | "te"
+  | "bn"
+  | "gu";

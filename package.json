@@ -4,7 +4,8 @@
   "description": "A simple humanizer created",
   "main": "./lib/index.js",
   "scripts": {
-    "start": "npx ts-node"
+    "start": "npx ts-node test.ts",
+    "compilate": "npx tsc"
   },
   "keywords": [
     "humanizer",

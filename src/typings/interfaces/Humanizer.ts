@@ -24,10 +24,17 @@ export interface HumanizerConfig {
    */
   enable_comma?: boolean;
   /**
-   * This means when you want to add a latest concatenator in the humanized time, e.g:
+   * This means when you want to add a latest separator in the humanized time, e.g:
    * @example
    * 3 hours, 17 minutes, 3 seconds => 3 hours, 17 minutes (concatenator) and 3 seconds.
    */
-  latest_concatenator?: string;
+  latest_separator?: string;
+  /**
+   * The language that will be humanizated the time.
+   * @example
+   * 3 hours, 17 minutes, 3 seconds => 3 horas, 17 minutos, 3 segundos
+   */
   language?: Languages;
+  max_decimal?: number;
+  decimal?: string;
 }
