@@ -1,16 +1,4 @@
-export declare type Languages =
-  | "es"
-  | "en"
-  | "pt"
-  | "fr"
-  | "it"
-  | "zh"
-  | "sv"
-  | "de"
-  | "ru"
-  | "nl"
-  | "ko"
-  | "ja";
+import { Languages } from "../enums/Languages";
 
 export declare interface Formats {
   seconds?: boolean;
@@ -18,6 +6,10 @@ export declare interface Formats {
   hours?: boolean;
   days?: boolean;
   weeks?: boolean;
+  months?: boolean;
+  years?: boolean;
+  lustrums?: boolean;
+  decades?: boolean;
 }
 
 export interface HumanizerConfig {
