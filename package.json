@@ -1,8 +1,22 @@
 {
-  "devDependencies": {
-    "@types/node": "^20.12.7"
-  },
+  "name": "@dbdteam/humanizer",
+  "version": "1.0.0",
+  "description": "A simple humanizer created",
+  "main": "./lib/index.js",
   "scripts": {
-    "start": "npx ts-node index.ts"
+    "start": "npx ts-node"
+  },
+  "keywords": [
+    "humanizer",
+    "dbdteam"
+  ],
+  "author": "DBDTeam",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DBDTeam/humanizer"
+  },
+  "bugs": {
+    "url": "https://github.com/DBDTeam/humanizer/issues"
   }
 }

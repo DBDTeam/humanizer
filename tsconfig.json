@@ -16,6 +16,6 @@
          "noFallthroughCasesInSwitch": true,
        
        "typeRoots": ["./node_modules/@types"],
-       "outDir": "./dir"
+       "outDir": "./lib"
     }
  }
