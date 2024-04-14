@@ -9,6 +9,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     pt: {
         years: string[];
@@ -20,6 +21,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     en: {
         years: string[];
@@ -31,6 +33,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     it: {
         years: string[];
@@ -42,6 +45,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     fr: {
         years: string[];
@@ -53,6 +57,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     de: {
         years: string[];
@@ -64,6 +69,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     nl: {
         years: string[];
@@ -75,6 +81,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     sv: {
         years: string[];
@@ -86,6 +93,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     ru: {
         years: string[];
@@ -97,6 +105,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     zh: {
         years: string[];
@@ -108,6 +117,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     ja: {
         years: string[];
@@ -119,6 +129,7 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
     };
     ko: {
         years: string[];
@@ -130,5 +141,90 @@ export declare const Langs: {
         hours: string[];
         minutes: string[];
         seconds: string[];
+        milliseconds: string[];
+    };
+    ar: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    hi: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    fa: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    ta: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    te: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    bn: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
+    };
+    gu: {
+        years: string[];
+        decades: string[];
+        lustrums: string[];
+        months: string[];
+        weeks: string[];
+        days: string[];
+        hours: string[];
+        minutes: string[];
+        seconds: string[];
+        milliseconds: string[];
     };
 };
