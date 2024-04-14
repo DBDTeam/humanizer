@@ -21,6 +21,7 @@
     "url": "https://github.com/DBDTeam/humanizer/issues"
   },
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }

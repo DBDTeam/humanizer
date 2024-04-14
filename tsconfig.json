@@ -7,15 +7,17 @@
        "skipLibCheck": true,
        "strict": true,
        "noImplicitAny": true,
-         "strictNullChecks": true,
-         "strictFunctionTypes": true,
-         "noImplicitThis": true,
-         "noUnusedLocals": true,
-         "noUnusedParameters": true,
-         "noImplicitReturns": true,
-         "noFallthroughCasesInSwitch": true,
-       
-       "typeRoots": ["./node_modules/@types"],
-       "outDir": "./lib"
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "typeRoots": ["./node_modules/@types"],
+        "outDir": "./lib",
+        "paths": {
+            "@types": ["./src/Typings.d.ts"]
+        }
     }
  }
