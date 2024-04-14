@@ -14,7 +14,7 @@ function ensureSpaces(text: string) {
 
 export class BaseHumanizer {
     /** All valid time units. */
-    readonly units: readonly string[];
+    readonly units: string[];
     /** All supported languages. */
     readonly valid_languages: string[];
     /** Humanizer configuration options. */
@@ -24,7 +24,7 @@ export class BaseHumanizer {
      * @param {HumanizerConfig} options - Humanizer configuration options.
      */
     constructor(options: HumanizerConfig) {
-        this.units = Object.freeze(Units);
+        this.units = Units;
         this.valid_languages = Array.from(Langs.keys());
 
         // Validate constructor options.
@@ -48,7 +48,7 @@ export class BaseHumanizer {
         for (const unit of this.units) {
             // Default format validation.
             if (!Object.prototype.hasOwnProperty.call(options.default_format, unit))
-                throw new ConfigError("There are some undefined units, please input a valid format.");
+                throw new ConfigError("There are some undefined units in Options#default_format, please input a valid format.");
             else if (typeof(Object.getOwnPropertyDescriptor(options.default_format, unit)!.value) !== "boolean")
                 throw new ConfigError(`default_format#${unit} expected a boolean, got a ${typeof(unit)}.`);
 

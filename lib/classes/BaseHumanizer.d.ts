@@ -2,7 +2,7 @@ import { HumanizerConfig } from '@types';
 export declare class BaseHumanizer {
     #private;
     /** All valid time units. */
-    readonly units: readonly string[];
+    readonly units: string[];
     /** All supported languages. */
     readonly valid_languages: string[];
     /** Humanizer configuration options. */

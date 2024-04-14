@@ -1,0 +1,10 @@
+# Folders
+.git
+__test__
+node_modules
+src
+
+# Files
+.gitignore
+package-lock.json
+tsconfig.json
