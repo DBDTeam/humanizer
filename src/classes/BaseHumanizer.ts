@@ -57,8 +57,9 @@ class BaseHumanizer {
                 throw new ConfigError(`max_units must be between 2 and ${this.units.length}, got ${max_decimal}.`);
         }
     }
-}
+};
 
+/* @test
 const hm = new BaseHumanizer({
     default_format: {
         milliseconds: true,
@@ -70,8 +71,9 @@ const hm = new BaseHumanizer({
         years: true,
         lustrums: false,
         decades: false,
-        days: true
+        days: "hola"
     }
 });
 const x = hm.config;
 console.log('IGNORE ->', x);
+*/
