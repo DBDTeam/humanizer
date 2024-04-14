@@ -10,6 +10,7 @@ export const Langs = {
     hours: ["hora", "horas"],
     minutes: ["minuto", "minutos"],
     seconds: ["segundo", "segundos"],
+    milliseconds: ["milisegundo", "milisegundos"]
   },
   // PORTUGUÉS
   pt: {
@@ -22,6 +23,7 @@ export const Langs = {
     hours: ["hora", "horas"],
     minutes: ["minuto", "minutos"],
     seconds: ["segundo", "segundos"],
+    milliseconds: ["milissegundo", "milissegundos"]
   },
   // ENGLISH
   en: {
@@ -34,6 +36,7 @@ export const Langs = {
     hours: ["hour", "hours"],
     minutes: ["minute", "minutes"],
     seconds: ["second", "seconds"],
+    milliseconds: ["millisecond", "milliseconds"]
   },
   // ITALIANO (ITALIAN)
   it: {
@@ -46,6 +49,7 @@ export const Langs = {
     hours: ["ora", "ore"],
     minutes: ["minuto", "minuti"],
     seconds: ["secondo", "secondi"],
+    milliseconds: ["millisecondo", "millisecondi"]
   },
   // FRANÇAIS (FRENCH)
   fr: {
@@ -58,6 +62,7 @@ export const Langs = {
     hours: ["heure", "heures"],
     minutes: ["minute", "minutes"],
     seconds: ["seconde", "secondes"],
+    milliseconds: ["milliseconde", "millisecondes"]
   },
   // DEUTSCH (GERMAN)
   de: {
@@ -70,6 +75,7 @@ export const Langs = {
     hours: ["Stunde", "Stunden"],
     minutes: ["Minute", "Minuten"],
     seconds: ["Sekunde", "Sekunden"],
+    milliseconds: ["Millisekunde", "Millisekunden"]
   },
   // NEDERLANDS (DUTCH)
   nl: {
@@ -82,6 +88,7 @@ export const Langs = {
     hours: ["uur", "uren"],
     minutes: ["minuut", "minuten"],
     seconds: ["seconde", "seconden"],
+    milliseconds: ["milliseconde", "milliseconden"]
   },
   // SVENSKA (SWEDISH)
   sv: {
@@ -94,6 +101,7 @@ export const Langs = {
     hours: ["timme", "timmar"],
     minutes: ["minut", "minuter"],
     seconds: ["sekund", "sekunder"],
+    milliseconds: ["millisekund", "millisekunder"]
   },
   // РУССКИЙ (RUSSIAN)
   ru: {
@@ -106,6 +114,7 @@ export const Langs = {
     hours: ["час", "часа"],
     minutes: ["минута", "минуты"],
     seconds: ["секунда", "секунды"],
+    milliseconds: ["миллисекунда", "миллисекунды"]
   },
   // 中文 (CHINESE TRADITIONAL)
   zh: {
@@ -118,6 +127,7 @@ export const Langs = {
     hours: ["小时", "小时"],
     minutes: ["分钟", "分钟"],
     seconds: ["秒", "秒"],
+    milliseconds: ["毫秒", "毫秒"]
   },
   // 日本語 (JAPANESE)
   ja: {
@@ -130,6 +140,7 @@ export const Langs = {
     hours: ["時間", "時間"],
     minutes: ["分", "分"],
     seconds: ["秒", "秒"],
+    milliseconds: ["ミリ秒", "ミリ秒"]
   },
   // 한국어 (KOREAN)
   ko: {
@@ -142,6 +153,7 @@ export const Langs = {
     hours: ["시간", "시간"],
     minutes: ["분", "분"],
     seconds: ["초", "초"],
+    milliseconds: ["밀리 초", "밀리 초"]
   },
   // العربية (ARABIC)
   ar: {
@@ -154,6 +166,7 @@ export const Langs = {
     hours: ["ساعة", "ساعات"],
     minutes: ["دقيقة", "دقائق"],
     seconds: ["ثانية", "ثواني"],
+    milliseconds: ["ميلي ثانية", "ميلي ثواني"]
   },
   // हिन्दी (HINDI)
   hi: {
@@ -166,6 +179,7 @@ export const Langs = {
     hours: ["घंटा", "घंटे"],
     minutes: ["मिनट", "मिनट"],
     seconds: ["सेकंड", "सेकंड"],
+    milliseconds: ["मिलीसेकंड", "मिलीसेकंड"]
   },
   // فارسی (PERSIAN)
   fa: {
@@ -178,6 +192,7 @@ export const Langs = {
     hours: ["ساعت", "ساعت"],
     minutes: ["دقیقه", "دقیقه"],
     seconds: ["ثانیه", "ثانیه"],
+    milliseconds: ["میلی ثانیه", "میلی ثانیه"]
   },
   // தமிழ் (TAMIL)
   ta: {
@@ -190,6 +205,7 @@ export const Langs = {
     hours: ["மணி", "மணிகள்"],
     minutes: ["நிமிடம்", "நிமிடங்கள்"],
     seconds: ["விநாடி", "விநாடிகள்"],
+    milliseconds: ["மில்லி விநாடி", "மில்லி விநாடிகள்"]
   },
   // తెలుగు (TELUGU)
   te: {
@@ -202,6 +218,7 @@ export const Langs = {
     hours: ["గంట", "గంటలు"],
     minutes: ["నిమిషం", "నిమిషాలు"],
     seconds: ["సెకన్", "సెకన్లు"],
+    milliseconds: ["మిల్లీసెకన్డు", "మిల్లీసెకన్డులు"]
   },
   // বাংলা (BENGALI)
   bn: {
@@ -214,6 +231,7 @@ export const Langs = {
     hours: ["ঘন্টা", "ঘন্টা"],
     minutes: ["মিনিট", "মিনিট"],
     seconds: ["সেকেন্ড", "সেকেন্ড"],
+    milliseconds: ["মিলিসেকেন্ড", "মিলিসেকেন্ড"]
   },
   // ગુજરાતી (GUJARATI)
   gu: {
@@ -226,5 +244,6 @@ export const Langs = {
     hours: ["ઘંટા", "ઘંટા"],
     minutes: ["મિનિટ", "મિનિટ"],
     seconds: ["સેકન્ડ", "સેકન્ડ"],
+    milliseconds: ["મિલિસેકન્ડ", "મિલિસેકન્ડ"]
   },
 };

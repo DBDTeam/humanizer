@@ -1,6 +1,7 @@
 import { Languages } from "../enums/Languages";
 
 export declare interface Formats {
+  milliseconds?: boolean;
   seconds?: boolean;
   minutes?: boolean;
   hours?: boolean;
@@ -37,4 +38,5 @@ export interface HumanizerConfig {
   language?: Languages;
   max_decimal?: number;
   decimal?: string;
+  max_units?: number;
 }
