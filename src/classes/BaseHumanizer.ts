@@ -1,6 +1,9 @@
 import { Languages } from "../typings/enums/Languages";
 import { HumanizerConfig } from "../typings/interfaces/Humanizer";
 
+/**
+ * The default config for these that are learning to use the humanizer.
+ */
 export const DefaultConfig: HumanizerConfig = {
   default_format: {
     seconds: true,
@@ -8,6 +11,9 @@ export const DefaultConfig: HumanizerConfig = {
     hours: true,
     days: true,
     weeks: true,
+    years: true,
+    lustrums: true,
+    decades: true
   },
   enable_comma: false,
   language: "en",
@@ -15,10 +21,22 @@ export const DefaultConfig: HumanizerConfig = {
 };
 
 export class BaseHumanizer {
+  /**
+   * The configuration used in the humanizer.
+   */
   config: HumanizerConfig;
+  /**
+   * The valid units.
+   */
   readonly units: string[];
+  /**
+   * The valid languages.
+   */
   readonly valid_languages: string[];
-
+  /**
+   * Represents the base of the Humanizer.
+   * @param {HumanizerConfig} config - The Configuration of the humanizer.
+   */
   constructor(config: HumanizerConfig) {
     this.units = [
       "decades",

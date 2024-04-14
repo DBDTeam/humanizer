@@ -1,15 +1,45 @@
 import { Languages } from "../enums/Languages";
 
 export declare interface Formats {
+  /**
+   * If milliseconds is enabled to use when humanizing.
+   */
   milliseconds?: boolean;
+  /**
+   * If seconds is enabled to use when humanizing.
+   */
   seconds?: boolean;
+  /**
+   * If minutes is enabled to use when humanizing.
+   */
   minutes?: boolean;
+  /**
+   * If hours is enabled to use when humanizing.
+   */
   hours?: boolean;
+  /**
+   * If days is enabled to use when humanizing.
+   */
   days?: boolean;
+  /**
+   * If weeks is enabled to use when humanizing.
+   */
   weeks?: boolean;
+  /**
+   * If months is enabled to use when humanizing.
+   */
   months?: boolean;
+  /**
+   * If years is enabled to use when humanizing.
+   */
   years?: boolean;
+  /**
+   * If lustrums is enabled to use when humanizing.
+   */
   lustrums?: boolean;
+  /**
+   * If decades is enabled to use when humanizing.
+   */
   decades?: boolean;
 }
 
@@ -36,7 +66,38 @@ export interface HumanizerConfig {
    * 3 hours, 17 minutes, 3 seconds => 3 horas, 17 minutos, 3 segundos
    */
   language?: Languages;
+  /**
+   * Represents the maximum number of decimal places the last number can have.
+   * @example
+   * 3 hours, 17 minutes, 3.125 seconds => (in the case of max_decimal = 2) 3 hours, 17 minutes, 3.12 seconds.
+   */
   max_decimal?: number;
+  /**
+   * Represents the replacement for the comma with another character of your choice.
+   * @example
+   * 3 hours, 17 minutes, 3.125 seconds => (in the case of decimal=",") 3 hours, 17 minutes, 3,125 seconds
+   */
   decimal?: string;
+  /**
+   * Represents the maximum number of units the text can have when humanizing.
+   * @example
+   * 3 hours, 17 minutes, 3 seconds => (in the case of max_units = 2) 3 hours, 17 minutes.
+   */
   max_units?: number;
+}
+
+/**
+ * Represents the object of the LanguageCreator.
+ */
+export interface LanguageCreator {
+  decades?: string[]
+  lustrums?: string[]
+  years?: string[]
+  months?: string[]
+  weeks?: string[]
+  days?: string[]
+  hours?: string[]
+  minutes?: string[]
+  seconds?: string[]
+  milliseconds?: string[]
 }
