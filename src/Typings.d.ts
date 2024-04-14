@@ -4,45 +4,19 @@
 
 //////////////////////////////////////////////
 
-/* ----------------- Types ----------------- */
-/** Represents the languages supported by the humanizer. */
-export type Languages =
-  | "es" // Español
-  | "en" // Inglés
-  | "pt" // Portugués
-  | "fr" // Francés
-  | "it" // Italiano
-  | "zh" // Chino
-  | "sv" // Sueco
-  | "de" // Alemán
-  | "ru" // Ruso
-  | "nl" // Holandés
-  | "ko" // Coreano
-  | "ja" // Japonés
-  | "ar" // Árabe
-  | "hi" // Hindi
-  | "fa" // Persa
-  | "ta" // Tamil
-  | "te" // Telugu
-  | "bn" // Bengalí
-  | "gu"; // Gujarati
-/* ------------------ End ------------------ */
-
-//////////////////////////////////////////////
-
 /* -------------- Interfaces --------------- */
-/** Represents all valid language units. */
-export interface LanguageUnits {
-    years:           string[];
-    decades:         string[];
-    lustrums:        string[];
-    months:          string[];
-    weeks:           string[];
-    days:            string[];
-    hours:           string[];
-    minutes:         string[];
-    seconds:         string[];
-    milliseconds:    string[];
+/** Represents a language creator. */
+export interface LanguageCreator {
+    years?:           string[];
+    decades?:         string[];
+    lustrums?:        string[];
+    months?:          string[];
+    weeks?:           string[];
+    days?:            string[];
+    hours?:           string[];
+    minutes?:         string[];
+    seconds?:         string[];
+    milliseconds?:    string[];
 };
 
 /** Allow/disallow unit object. */
@@ -113,3 +87,42 @@ export interface HumanizerConfig {
     max_units?: number;
 };
 /* ------------------ End ------------------ */
+
+//////////////////////////////////////////////
+
+/* ----------------- Types ----------------- */
+/** Represents the languages supported by the humanizer. */
+export type Languages =
+  | "es" // Español
+  | "en" // Inglés
+  | "pt" // Portugués
+  | "fr" // Francés
+  | "it" // Italiano
+  | "zh" // Chino
+  | "sv" // Sueco
+  | "de" // Alemán
+  | "ru" // Ruso
+  | "nl" // Holandés
+  | "ko" // Coreano
+  | "ja" // Japonés
+  | "ar" // Árabe
+  | "hi" // Hindi
+  | "fa" // Persa
+  | "ta" // Tamil
+  | "te" // Telugu
+  | "bn" // Bengalí
+  | "gu"; // Gujarati
+
+/** Ensures type of T. */
+export type Ensure<T> = Exclude<T, null | undefined>;
+
+/** Ensures all properties in a object. */
+export type EnsureAll<T> = {
+    [P in keyof T]-?: Ensure<T[P]>;
+};
+
+/** Represents all valid language units. */
+export type LanguageUnits = EnsureAll<LanguageCreator>;
+/* ------------------ End ------------------ */
+
+//////////////////////////////////////////////

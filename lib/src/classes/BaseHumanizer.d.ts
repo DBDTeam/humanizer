@@ -1,9 +1,15 @@
-import { HumanizerConfig } from "../typings/interfaces/Humanizer";
-export declare const DefaultConfig: HumanizerConfig;
+import { HumanizerConfig } from '@types';
 export declare class BaseHumanizer {
-    config: HumanizerConfig;
-    readonly units: string[];
+    #private;
+    /** All valid time units. */
+    readonly units: readonly string[];
+    /** All supported languages. */
     readonly valid_languages: string[];
-    constructor(config: HumanizerConfig);
-    private check_config;
+    /** Humanizer configuration options. */
+    config: HumanizerConfig;
+    /**
+     * Humanizer setup options.
+     * @param {HumanizerConfig} options - Humanizer configuration options.
+     */
+    constructor(options: HumanizerConfig);
 }

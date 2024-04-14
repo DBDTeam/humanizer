@@ -1,12 +1,22 @@
-import { HumanizerConfig } from '@types';
 import { Langs, Units } from '../Constants';
+import { HumanizerConfig } from '@types';
 import { ConfigError } from "./Errors";
 
-class BaseHumanizer {
+/**
+ * Ensures the last separator.
+ * @param {string} text - The separator to be ensured.
+ * @returns {string}
+ */
+function ensureSpaces(text: string) {
+    if (text.startsWith(" ") && text.endsWith(" ")) return text;
+    return ` ${text} `;
+}
+
+export class BaseHumanizer {
     /** All valid time units. */
     readonly units: readonly string[];
     /** All supported languages. */
-    readonly valid_languages: readonly string[];
+    readonly valid_languages: string[];
     /** Humanizer configuration options. */
     config: HumanizerConfig;
     /**
@@ -15,11 +25,14 @@ class BaseHumanizer {
      */
     constructor(options: HumanizerConfig) {
         this.units = Object.freeze(Units);
-        this.valid_languages = Object.freeze(Array.from(Object.keys(Langs)));
+        this.valid_languages = Array.from(Langs.keys());
 
         // Validate constructor options.
         this.#checkConfig(options);
         this.config = options;
+        if (this.config.latest_separator) {
+            this.config.latest_separator = ensureSpaces(this.config.latest_separator);
+        }
     }
 
     /**
