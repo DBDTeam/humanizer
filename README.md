@@ -24,6 +24,8 @@ const results = [
 
 console.log(...results)
 ```
-In future versions, we'll add documentation for easier usage!
+
+### Also you can check the documentation!
+[Click here to go to our documentation](https://dbdteam.github.io/humanizatordocs.github.io/)
 
 @DBDTeam - 2024

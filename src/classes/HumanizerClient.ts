@@ -1,5 +1,8 @@
 import { Langs } from "../../langs_units";
-import { HumanizerConfig, LanguageCreator } from "../typings/interfaces/Humanizer";
+import {
+  HumanizerConfig,
+  LanguageCreator,
+} from "../typings/interfaces/Humanizer";
 import { BaseHumanizer } from "./BaseHumanizer";
 
 export class HumanizerClient extends BaseHumanizer {
@@ -9,7 +12,7 @@ export class HumanizerClient extends BaseHumanizer {
    * @example
    * ```js
    * const { HumanizerClient, DefaultConfig } = require("@dbdteam/humanizator")
-   * 
+   *
    * const client = new HumanizerClient(DefaultConfig)
    * ```
    */
@@ -25,11 +28,11 @@ export class HumanizerClient extends BaseHumanizer {
    * @example
    * ```js
    * const { HumanizerClient, DefaultConfig } = require("@dbdteam/humanizator")
-   * 
+   *
    * const client = new HumanizerClient(DefaultConfig)
    * // 20 minutes
    * const result = client.humanizeMilliseconds(1000 * 60 * 20)
-   * 
+   *
    * console.log(result)
    * ```
    */
@@ -53,18 +56,21 @@ export class HumanizerClient extends BaseHumanizer {
    * @example
    * ```js
    * const { HumanizerClient, DefaultConfig } = require("@dbdteam/humanizator")
-   * 
+   *
    * const client = new HumanizerClient(DefaultConfig)
    * // 20 minutes
    * const result = client.humanizeStamps(Date.now() + (1000 * 60 * 20))
-   * 
+   *
    * console.log(result)
    * ```
    */
 
-  humanizeStamps(stamp1: number, stamp2?: number, option?: LanguageCreator): string {
-
-    return this.humanizeMilliseconds(stamp1-(stamp2 || Date.now()), option);
+  humanizeStamps(
+    stamp1: number,
+    stamp2?: number,
+    option?: LanguageCreator
+  ): string {
+    return this.humanizeMilliseconds(stamp1 - (stamp2 || Date.now()), option);
   }
   /**
    * Humanizes two dates.
@@ -75,11 +81,11 @@ export class HumanizerClient extends BaseHumanizer {
    * @example
    * ```js
    * const { HumanizerClient, DefaultConfig } = require("@dbdteam/humanizator")
-   * 
+   *
    * const client = new HumanizerClient(DefaultConfig)
    * // 20 minutes
    * const result = client.humanizeStamps(new Date(Date.now() + (1000 * 60 * 20)))
-   * 
+   *
    * console.log(result)
    * ```
    */
@@ -124,7 +130,7 @@ export class HumanizerClient extends BaseHumanizer {
         const value = Number(
           this.config?.enable_comma &&
             (this.units.length - 1 == Number(f) ||
-              this.config.max_units === count+1)
+              this.config.max_units === count + 1)
             ? y.toFixed(this.config?.max_decimal)
             : Math.floor(y)
         );
@@ -132,8 +138,10 @@ export class HumanizerClient extends BaseHumanizer {
 
         if (value > 0) {
           time.push(
-            `${value.toString().replace(".", this.config?.decimal || ".")} ${
-              units_per_lang[unit][value === 1 ? 0 : 1]
+            `${value.toString().replace(".", this.config?.decimal || ".")}${
+              this.config.pre_spacer ? this.config.pre_spacer : ""
+            } ${units_per_lang[unit][value === 1 ? 0 : 1]}${
+              this.config.post_spacer ? this.config.post_spacer : ""
             }`
           );
           count++;

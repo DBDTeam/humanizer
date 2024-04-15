@@ -84,20 +84,82 @@ export interface HumanizerConfig {
    * 3 hours, 17 minutes, 3 seconds => (in the case of max_units = 2) 3 hours, 17 minutes.
    */
   max_units?: number;
+  post_spacer?: string;
+  pre_spacer?: string;
 }
 
 /**
  * Represents the object of the LanguageCreator.
  */
 export interface LanguageCreator {
+  /**
+   * Represents the new name of decades
+   * @example
+   * ```
+   * { decades: ["singular", "plural"] }
+   */
   decades?: string[]
+  /**
+   * Represents the new name of lustrumns
+   * @example
+   * ```
+   * { lustrums: ["singular", "plural"] }
+   */
   lustrums?: string[]
+  /**
+   * Represents the new name of years
+   * @example
+   * ```
+   * { years: ["singular", "plural"] }
+   */
   years?: string[]
+  /**
+   * Represents the new name of months
+   * @example
+   * ```
+   * { months: ["singular", "plural"] }
+   */
   months?: string[]
+  /**
+   * Represents the new name of weeks
+   * @example
+   * ```
+   * { weeks: ["singular", "plural"] }
+   */
   weeks?: string[]
+  /**
+   * Represents the new name of days
+   * @example
+   * ```
+   * { days: ["singular", "plural"] }
+   */
   days?: string[]
+  /**
+   * Represents the new name of hours
+   * @example
+   * ```
+   * { hours: ["singular", "plural"] }
+   */
   hours?: string[]
+  /**
+   * Represents the new name of minutes
+   * @example
+   * ```
+   * { minutes: ["singular", "plural"] }
+   */
   minutes?: string[]
+  /**
+   * Represents the new name of seconds
+   * @example
+   * ```
+   * { seconds: ["singular", "plural"] }
+   */
   seconds?: string[]
+  /**
+   * Represents the new name of milliseconds
+   * @example
+   * ```
+   * { milliseconds: ["singular", "plural"] }
+   */
   milliseconds?: string[]
 }

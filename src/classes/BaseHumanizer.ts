@@ -13,7 +13,7 @@ export const DefaultConfig: HumanizerConfig = {
     weeks: true,
     years: true,
     lustrums: true,
-    decades: true
+    decades: true,
   },
   enable_comma: false,
   language: "en",
@@ -126,6 +126,16 @@ export class BaseHumanizer {
     )
       throw new Error(
         `[HumanizerConfigError]: Please, in the option 'max_units', you must place a valid number between 2 and ${this.units.length}`
+      );
+
+    if (config?.pre_spacer && typeof config?.pre_spacer !== "string")
+      throw new Error(
+        `[HumanizerConfigError]: Please, in the option 'pre_spacer' put a valid string.`
+      );
+
+    if (config?.post_spacer && typeof config?.post_spacer !== "string")
+      throw new Error(
+        `[HumanizerConfigError]: Please, in the option 'post_spacer' put a valid string.`
       );
   }
 }

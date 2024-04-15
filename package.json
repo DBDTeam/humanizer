@@ -1,6 +1,6 @@
 {
   "name": "@dbdteam/humanizator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "An intuitive time humanizer designed to convert time units into easily digestible language. Whether you're working with years, months, weeks, days, hours, minutes, or seconds, Humanizator simplifies time data, making it more accessible and user-friendly. Perfect for applications aiming to improve user experience by presenting time-related information in a clear and natural format. With Humanizator, enhance your application's readability and usability, ensuring that time-related data is presented in a language that resonates with users.",
   "main": "./lib/index.js",
   "scripts": {
