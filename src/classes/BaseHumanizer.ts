@@ -1,141 +1,79 @@
-import { Languages } from "../typings/enums/Languages";
-import { HumanizerConfig } from "../typings/interfaces/Humanizer";
+import { Langs, Units } from "../Constants";
+import { HumanizerConfig } from "@types";
+import { ConfigError } from "./Errors";
 
 /**
- * The default config for these that are learning to use the humanizer.
+ * Ensures the last separator.
+ * @param {string} text - The separator to be ensured.
+ * @returns {string}
  */
-export const DefaultConfig: HumanizerConfig = {
-  default_format: {
-    seconds: true,
-    minutes: true,
-    hours: true,
-    days: true,
-    weeks: true,
-    years: true,
-    lustrums: true,
-    decades: true,
-  },
-  enable_comma: false,
-  language: "en",
-  latest_separator: " and ",
-};
+function ensureSpaces(text: string) {
+    if (text.startsWith(" ") && text.endsWith(" ")) return text;
+    return ` ${text} `;
+}
 
 export class BaseHumanizer {
-  /**
-   * The configuration used in the humanizer.
-   */
-  config: HumanizerConfig;
-  /**
-   * The valid units.
-   */
-  readonly units: string[];
-  /**
-   * The valid languages.
-   */
-  readonly valid_languages: string[];
-  /**
-   * Represents the base of the Humanizer.
-   * @param {HumanizerConfig} config - The Configuration of the humanizer.
-   */
-  constructor(config: HumanizerConfig) {
-    this.units = [
-      "decades",
-      "lustrums",
-      "years",
-      "months",
-      "weeks",
-      "days",
-      "hours",
-      "minutes",
-      "seconds",
-      "milliseconds",
-    ];
-    this.valid_languages = [
-      "es",
-      "en",
-      "pt",
-      "fr",
-      "it",
-      "zh",
-      "sv",
-      "de",
-      "ru",
-      "nl",
-      "ko",
-      "ja",
-      "ar",
-      "hi",
-      "fa",
-      "ta",
-      "te",
-      "bn",
-      "gu",
-    ];
-    this.check_config(config);
+    /** All valid time units. */
+    readonly units: string[];
+    /** All supported languages. */
+    readonly valid_languages: string[];
+    /** Humanizer configuration options. */
+    config: HumanizerConfig;
+    /**
+     * Humanizer setup options.
+     * @param {HumanizerConfig} options - Humanizer configuration options.
+     */
+    constructor(options: HumanizerConfig) {
+        this.units = Units;
+        this.valid_languages = Array.from(Langs.keys());
 
-    this.config = config;
-  }
-
-  private check_config(config: HumanizerConfig) {
-    if (!config?.default_format)
-      throw new Error(`[HumanizerConfigError]: Please, input a valid format.`);
-
-    for (let i of this.units) {
-      // @ts-ignore
-      const x = config?.default_format?.[i];
-      if (
-        !Object.keys(config?.default_format).includes(i) &&
-        x &&
-        !(x instanceof Boolean || typeof x === "boolean")
-      )
-        throw new Error(`[HumanizerConfigError]: Please, input a valid format`);
+        // Validate constructor options.
+        this.#checkConfig(options);
+        this.config = options;
+        if (this.config.latest_separator) {
+            this.config.latest_separator = ensureSpaces(this.config.latest_separator);
+        }
     }
 
-    if (
-      config?.language &&
-      !this.valid_languages.includes(config?.language?.toLowerCase())
-    )
-      throw new Error(
-        `[HumanizerConfigError]: Please, select a valid language. Valid languages: ${this.valid_languages}`
-      );
-    if (config?.language) {
-      config.language = config.language as Languages;
+    /**
+     * Check all Humanizer constructor options.
+     * @param {HumanizerConfig} options - Humanizer configuration options.
+     * @returns {void}
+     */
+    #checkConfig(options: HumanizerConfig) {
+        // Default format validation.
+        if (!options.default_format)
+            throw new ConfigError("Please, input a valid format.");
+
+        for (const unit of this.units) {
+            // Default format validation.
+            if (!Object.prototype.hasOwnProperty.call(options.default_format, unit))
+                throw new ConfigError("There are some undefined units in Options#default_format, please input a valid format.");
+            else if (typeof(Object.getOwnPropertyDescriptor(options.default_format, unit)!.value) !== "boolean")
+                throw new ConfigError(`default_format#${unit} expected a boolean, got a ${typeof(unit)}.`);
+
+            // Language validation.
+            if (options.language && !this.valid_languages.includes(options.language.toLowerCase()))
+                throw new ConfigError(`Please, select a valid language. Valid languages: "${this.valid_languages.join(", ")}"`);
+
+            // Comma validation.
+            if (options.enable_comma && typeof(options.enable_comma) !== "boolean")
+                throw new ConfigError(`enable_comma expected a boolean, got a ${typeof(options.enable_comma)}.`);
+
+            // Decimal validation.
+            let max_decimal = options.max_decimal ?? 2;
+            if (max_decimal > 20 || max_decimal < 1)
+                throw new ConfigError(`max_decimal must be between 2 and 20, got ${max_decimal}.`);
+
+            // Max units validation.
+            if (options.max_units && (options.max_units > this.units.length || options.max_units < 1))
+                throw new ConfigError(`max_units must be between 2 and ${this.units.length}, got ${max_decimal}.`);
+
+            // Pre-spacer and post-spacer validations.
+            if (options.pre_spacer && typeof options.pre_spacer !== "string")
+                throw new ConfigError(`Options#pre_spacer expected a string, got a ${typeof(options.pre_spacer)}.`);
+            if (options.post_spacer && typeof options.post_spacer !== "string")
+                throw new ConfigError(`Options#post_spacer expected a string, got a ${typeof(options.post_spacer)}.`);
+        }
     }
-    if (
-      config?.enable_comma &&
-      !(
-        (config?.enable_comma as any) instanceof Boolean ||
-        typeof config?.enable_comma === "boolean"
-      )
-    )
-      throw new Error(
-        `[HumanizerConfigError]: Please, in the option 'enable_comma' is expected a Boolean.`
-      );
-
-    if (
-      (config?.max_decimal && config?.max_decimal > 20) || //@ts-ignore
-      config?.max_decimal < 1
-    )
-      throw new Error(
-        `[HumanizerConfigError]: Please, in the option 'max_decimal', you must place a valid number between 2 and 20`
-      );
-
-    if (
-      (config?.max_units && config.max_units > this.units.length) || //@ts-ignore
-      config.max_units < 1
-    )
-      throw new Error(
-        `[HumanizerConfigError]: Please, in the option 'max_units', you must place a valid number between 2 and ${this.units.length}`
-      );
-
-    if (config?.pre_spacer && typeof config?.pre_spacer !== "string")
-      throw new Error(
-        `[HumanizerConfigError]: Please, in the option 'pre_spacer' put a valid string.`
-      );
-
-    if (config?.post_spacer && typeof config?.post_spacer !== "string")
-      throw new Error(
-        `[HumanizerConfigError]: Please, in the option 'post_spacer' put a valid string.`
-      );
-  }
-}
+};

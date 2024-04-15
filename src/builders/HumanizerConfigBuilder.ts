@@ -1,5 +1,4 @@
-import { Languages } from "../../typings/enums/Languages";
-import { Formats } from "../../typings/interfaces/Humanizer"
+import { Formats, Languages } from "@types";
 
 export class HumanizerConfigBuilder {
     default_format?: Formats;

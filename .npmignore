@@ -1,5 +1,10 @@
+# Folders
+.git
+__test__
 node_modules
 src
+
+# Files
+.gitignore
 package-lock.json
-test.test
-typedoc.json
+tsconfig.json
