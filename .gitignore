@@ -2,4 +2,3 @@ node_modules
 package-lock.json
 test.ts
 tsconfig.json
-typedoc.json

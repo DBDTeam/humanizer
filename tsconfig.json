@@ -1,24 +1,26 @@
 {
     "compilerOptions": {
-       "module": "NodeNext",
-       "moduleResolution": "NodeNext",
-       "target": "ESNext",
-       "declaration": true,
-       "skipLibCheck": true,
-       "strict": true,
-       "noImplicitAny": true,
-         "strictNullChecks": true,
-         "strictFunctionTypes": true,
-         "noImplicitThis": true,
-         "noUnusedLocals": true,
-         "noUnusedParameters": true,
-         "noImplicitReturns": true,
-         "noFallthroughCasesInSwitch": true,
-       
-       "typeRoots": ["./node_modules/@types"],
-       "outDir": "./lib",
+        "target": "ES2020",
+        "module": "CommonJS",
+        "rootDir": "src",
+        "outDir": "lib",
+        "baseUrl": "./",
+        "paths": {
+            "@types": ["./Typings.d.ts"]
+        },
+        "declaration": true,
+        "esModuleInterop": true,
+        "removeComments": false,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true
     },
     "include": [
-      "./src"
+        "./src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib",
+        "__test__"
     ]
- }
+}

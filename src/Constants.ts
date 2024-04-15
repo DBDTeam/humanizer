@@ -1,6 +1,44 @@
-export const Langs = {
-  // ESPAÑOL (SPANISH)
-  es: {
+import { Languages, LanguageUnits } from "@types";
+
+/**
+ * All supported time units.
+ */
+export const Units = [
+    "decades",
+    "lustrums",
+    "years",
+    "months",
+    "weeks",
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+    "milliseconds",
+];
+
+/**
+ * Time conversion factors.
+ */
+export const Factors: Record<string, number> = {
+    decades: 311040000000,
+    lustrums: 155520000000,
+    years: 31104000000,
+    months: 2592000000,
+    weeks: 604800000,
+    days: 86400000,
+    hours: 3600000,
+    minutes: 60000,
+    seconds: 1000,
+    milliseconds: 1,
+};
+
+/**
+ * Language code map.
+ */
+export const Langs = new Map<Languages, LanguageUnits>();
+
+// ESPAÑOL (SPANISH)
+Langs.set("es", {
     years: ["año", "años"],
     decades: ["década", "décadas"],
     lustrums: ["lustro", "lustros"],
@@ -10,10 +48,11 @@ export const Langs = {
     hours: ["hora", "horas"],
     minutes: ["minuto", "minutos"],
     seconds: ["segundo", "segundos"],
-    milliseconds: ["milisegundo", "milisegundos"]
-  },
-  // PORTUGUÉS
-  pt: {
+    milliseconds: ["milisegundo", "milisegundos"],
+})
+    
+// PORTUGUÉS
+.set("pt", {
     years: ["ano", "anos"],
     decades: ["década", "décadas"],
     lustrums: ["lustro", "lustros"],
@@ -23,10 +62,11 @@ export const Langs = {
     hours: ["hora", "horas"],
     minutes: ["minuto", "minutos"],
     seconds: ["segundo", "segundos"],
-    milliseconds: ["milissegundo", "milissegundos"]
-  },
-  // ENGLISH
-  en: {
+    milliseconds: ["milissegundo", "milissegundos"],
+})
+    
+// ENGLISH
+.set("en", {
     years: ["year", "years"],
     decades: ["decade", "decades"],
     lustrums: ["lustrum", "lustrums"],
@@ -36,10 +76,11 @@ export const Langs = {
     hours: ["hour", "hours"],
     minutes: ["minute", "minutes"],
     seconds: ["second", "seconds"],
-    milliseconds: ["millisecond", "milliseconds"]
-  },
-  // ITALIANO (ITALIAN)
-  it: {
+    milliseconds: ["millisecond", "milliseconds"],
+})
+    
+// ITALIANO (ITALIAN)
+.set("it", {
     years: ["anno", "anni"],
     decades: ["decade", "decadi"],
     lustrums: ["lustro", "lustrum"],
@@ -49,10 +90,11 @@ export const Langs = {
     hours: ["ora", "ore"],
     minutes: ["minuto", "minuti"],
     seconds: ["secondo", "secondi"],
-    milliseconds: ["millisecondo", "millisecondi"]
-  },
-  // FRANÇAIS (FRENCH)
-  fr: {
+    milliseconds: ["millisecondo", "millisecondi"],
+})
+    
+// FRANÇAIS (FRENCH)
+.set("fr", {
     years: ["an", "ans"],
     decades: ["décennie", "décennies"],
     lustrums: ["lustre", "lustres"],
@@ -62,10 +104,11 @@ export const Langs = {
     hours: ["heure", "heures"],
     minutes: ["minute", "minutes"],
     seconds: ["seconde", "secondes"],
-    milliseconds: ["milliseconde", "millisecondes"]
-  },
-  // DEUTSCH (GERMAN)
-  de: {
+    milliseconds: ["milliseconde", "millisecondes"],
+})
+    
+// DEUTSCH (GERMAN)
+.set("de", {
     years: ["Jahr", "Jahre"],
     decades: ["Jahrzehnt", "Jahrzehnte"],
     lustrums: ["Lustrum", "Lustra"],
@@ -75,10 +118,11 @@ export const Langs = {
     hours: ["Stunde", "Stunden"],
     minutes: ["Minute", "Minuten"],
     seconds: ["Sekunde", "Sekunden"],
-    milliseconds: ["Millisekunde", "Millisekunden"]
-  },
-  // NEDERLANDS (DUTCH)
-  nl: {
+    milliseconds: ["Millisekunde", "Millisekunden"],
+})
+    
+// NEDERLANDS (DUTCH)
+.set("nl", {
     years: ["jaar", "jaren"],
     decades: ["decennium", "decennia"],
     lustrums: ["lustre", "lustra"],
@@ -88,10 +132,11 @@ export const Langs = {
     hours: ["uur", "uren"],
     minutes: ["minuut", "minuten"],
     seconds: ["seconde", "seconden"],
-    milliseconds: ["milliseconde", "milliseconden"]
-  },
-  // SVENSKA (SWEDISH)
-  sv: {
+    milliseconds: ["milliseconde", "milliseconden"],
+})
+    
+// SVENSKA (SWEDISH)
+.set("sv", {
     years: ["år", "år"],
     decades: ["decennium", "decennier"],
     lustrums: ["lustro", "lustro"],
@@ -101,10 +146,11 @@ export const Langs = {
     hours: ["timme", "timmar"],
     minutes: ["minut", "minuter"],
     seconds: ["sekund", "sekunder"],
-    milliseconds: ["millisekund", "millisekunder"]
-  },
-  // РУССКИЙ (RUSSIAN)
-  ru: {
+    milliseconds: ["millisekund", "millisekunder"],
+})
+    
+// РУССКИЙ (RUSSIAN)
+.set("ru", {
     years: ["год", "года"],
     decades: ["десятилетие", "десятилетия"],
     lustrums: ["лустра", "лустры"],
@@ -114,10 +160,11 @@ export const Langs = {
     hours: ["час", "часа"],
     minutes: ["минута", "минуты"],
     seconds: ["секунда", "секунды"],
-    milliseconds: ["миллисекунда", "миллисекунды"]
-  },
-  // 中文 (CHINESE TRADITIONAL)
-  zh: {
+    milliseconds: ["миллисекунда", "миллисекунды"],
+})
+
+// 中文 (CHINESE TRADITIONAL)
+.set("zh", {
     years: ["年", "年"],
     decades: ["十年", "十年"],
     lustrums: ["五年", "五年"],
@@ -127,10 +174,11 @@ export const Langs = {
     hours: ["小时", "小时"],
     minutes: ["分钟", "分钟"],
     seconds: ["秒", "秒"],
-    milliseconds: ["毫秒", "毫秒"]
-  },
-  // 日本語 (JAPANESE)
-  ja: {
+    milliseconds: ["毫秒", "毫秒"],
+})
+    
+// 日本語 (JAPANESE)
+.set("ja", {
     years: ["年", "年"],
     decades: ["十年", "十年"],
     lustrums: ["五年", "五年"],
@@ -140,10 +188,11 @@ export const Langs = {
     hours: ["時間", "時間"],
     minutes: ["分", "分"],
     seconds: ["秒", "秒"],
-    milliseconds: ["ミリ秒", "ミリ秒"]
-  },
-  // 한국어 (KOREAN)
-  ko: {
+    milliseconds: ["ミリ秒", "ミリ秒"],
+})
+
+// 한국어 (KOREAN)
+.set("ko", {
     years: ["년", "년"],
     decades: ["십 년", "십 년"],
     lustrums: ["다섯 년", "다섯 년"],
@@ -153,10 +202,11 @@ export const Langs = {
     hours: ["시간", "시간"],
     minutes: ["분", "분"],
     seconds: ["초", "초"],
-    milliseconds: ["밀리 초", "밀리 초"]
-  },
-  // العربية (ARABIC)
-  ar: {
+    milliseconds: ["밀리 초", "밀리 초"],
+})
+
+// العربية (ARABIC)
+.set("ar", {
     years: ["سنة", "سنوات"],
     decades: ["عقد", "عقود"],
     lustrums: ["خمس سنوات", "خمس سنوات"],
@@ -166,10 +216,11 @@ export const Langs = {
     hours: ["ساعة", "ساعات"],
     minutes: ["دقيقة", "دقائق"],
     seconds: ["ثانية", "ثواني"],
-    milliseconds: ["ميلي ثانية", "ميلي ثواني"]
-  },
-  // हिन्दी (HINDI)
-  hi: {
+    milliseconds: ["ميلي ثانية", "ميلي ثواني"],
+})
+
+// हिन्दी (HINDI)
+.set("hi", {
     years: ["साल", "साल"],
     decades: ["दशक", "दशक"],
     lustrums: ["लस्ट्रम", "लस्ट्रम"],
@@ -179,10 +230,11 @@ export const Langs = {
     hours: ["घंटा", "घंटे"],
     minutes: ["मिनट", "मिनट"],
     seconds: ["सेकंड", "सेकंड"],
-    milliseconds: ["मिलीसेकंड", "मिलीसेकंड"]
-  },
-  // فارسی (PERSIAN)
-  fa: {
+    milliseconds: ["मिलीसेकंड", "मिलीसेकंड"],
+})
+
+// فارسی (PERSIAN)
+.set("fa", {
     years: ["سال", "سال"],
     decades: ["دهه", "دهه"],
     lustrums: ["لوستر", "لوستر"],
@@ -192,10 +244,11 @@ export const Langs = {
     hours: ["ساعت", "ساعت"],
     minutes: ["دقیقه", "دقیقه"],
     seconds: ["ثانیه", "ثانیه"],
-    milliseconds: ["میلی ثانیه", "میلی ثانیه"]
-  },
-  // தமிழ் (TAMIL)
-  ta: {
+    milliseconds: ["میلی ثانیه", "میلی ثانیه"],
+})
+
+// தமிழ் (TAMIL)
+.set("ta", {
     years: ["வருடம்", "ஆண்டுகள்"],
     decades: ["தசாவது", "தசாகள்"],
     lustrums: ["லஸ்ட்ரம்", "லஸ்ட்ரம்"],
@@ -205,10 +258,11 @@ export const Langs = {
     hours: ["மணி", "மணிகள்"],
     minutes: ["நிமிடம்", "நிமிடங்கள்"],
     seconds: ["விநாடி", "விநாடிகள்"],
-    milliseconds: ["மில்லி விநாடி", "மில்லி விநாடிகள்"]
-  },
-  // తెలుగు (TELUGU)
-  te: {
+    milliseconds: ["மில்லி விநாடி", "மில்லி விநாடிகள்"],
+})
+
+// తెలుగు (TELUGU)
+.set("te", {
     years: ["సంవత్సరం", "సంవత్సరాలు"],
     decades: ["దశాబ్దాలు", "దశాబ్దాలు"],
     lustrums: ["లస్ట్రం", "లస్ట్రాలు"],
@@ -218,10 +272,11 @@ export const Langs = {
     hours: ["గంట", "గంటలు"],
     minutes: ["నిమిషం", "నిమిషాలు"],
     seconds: ["సెకన్", "సెకన్లు"],
-    milliseconds: ["మిల్లీసెకన్డు", "మిల్లీసెకన్డులు"]
-  },
-  // বাংলা (BENGALI)
-  bn: {
+    milliseconds: ["మిల్లీసెకన్డు", "మిల్లీసెకన్డులు"],
+})
+
+// বাংলা (BENGALI)
+.set("bn", {
     years: ["বছর", "বছর"],
     decades: ["দশক", "দশক"],
     lustrums: ["লস্ট্রাম", "লস্ট্রাম"],
@@ -231,10 +286,11 @@ export const Langs = {
     hours: ["ঘন্টা", "ঘন্টা"],
     minutes: ["মিনিট", "মিনিট"],
     seconds: ["সেকেন্ড", "সেকেন্ড"],
-    milliseconds: ["মিলিসেকেন্ড", "মিলিসেকেন্ড"]
-  },
-  // ગુજરાતી (GUJARATI)
-  gu: {
+    milliseconds: ["মিলিসেকেন্ড", "মিলিসেকেন্ড"],
+})
+
+// ગુજરાતી (GUJARATI)
+.set("gu", {
     years: ["વર્ષ", "વર્ષો"],
     decades: ["દાયો", "દાયકા"],
     lustrums: ["લસ્ટ્રમ", "લસ્ટ્રમ્સ"],
@@ -244,6 +300,10 @@ export const Langs = {
     hours: ["ઘંટા", "ઘંટા"],
     minutes: ["મિનિટ", "મિનિટ"],
     seconds: ["સેકન્ડ", "સેકન્ડ"],
-    milliseconds: ["મિલિસેકન્ડ", "મિલિસેકન્ડ"]
-  },
-};
+    milliseconds: ["મિલિસેકન્ડ", "મિલિસેકન્ડ"],
+});
+
+/**
+ * This can be infinitely improved by getting a language list
+ * and fetching every translated word and adding it to the map.
+ */
