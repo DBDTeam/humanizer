@@ -1,3 +1,5 @@
+import { HumanizerConfigBuilder } from "./builders/HumanizerConfigBuilder";
+import { LanguageCreatorBuilder } from "./builders/LanguageCreatorBuilder";
 import { HumanizerClient } from "./classes/HumanizerClient";
 import { HumanizerConfig } from "@types";
 
@@ -20,5 +22,5 @@ const DefaultConfig: HumanizerConfig = {
   latest_separator: "and",
 };
 
-export { DefaultConfig, HumanizerClient }
-export default { DefaultConfig, HumanizerClient }
+export { DefaultConfig, HumanizerClient, HumanizerConfigBuilder, LanguageCreatorBuilder }
+export default { DefaultConfig, HumanizerClient, HumanizerConfigBuilder, LanguageCreatorBuilder }

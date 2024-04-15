@@ -23,6 +23,9 @@ const client = new HumanizerClient({
 const tiempo = 1000 * 60 * 24 + 502 + 787 + 41415 + 54456 + 45465879789465;
 console.log(client.humanizeMilliseconds(tiempo));
 
+const tiempo2 = 1000 * 60 * 24 + 502 + 787 + 41415;
+console.log(client.humanizeMilliseconds(tiempo2));
+
 const tiempostamp = Date.now() + (1000 * 60 * 24 + 502 + 787 + 41415 + 54456 + 45465879789465);
 console.log(client.humanizeStamps(tiempostamp));
 

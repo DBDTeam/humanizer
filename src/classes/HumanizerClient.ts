@@ -1,6 +1,7 @@
-import { HumanizerConfig, LanguageCreator, Languages } from '@types';
+import { HumanizerConfig, LanguageCreator, Languages } from "@types";
 import { BaseHumanizer } from "./BaseHumanizer";
 import { Factors, Langs } from "../Constants";
+import { HumanizerError } from "./Errors";
 
 export class HumanizerClient extends BaseHumanizer {
     /**
@@ -80,7 +81,7 @@ export class HumanizerClient extends BaseHumanizer {
     */
     humanizeDate(date1: Date, date2?: Date, option?: LanguageCreator) {
         if (!date1 || !(date1 instanceof Date))
-            throw new Error("[HumanizerError]: Please provide at least 1 valid date.");
+            throw new HumanizerError("Please provide at least 1 valid date.");
         const milliseconds = date1.getTime() - (date2?.getTime() || Date.now());
         return this.humanizeMilliseconds(milliseconds, option);
     }
@@ -102,10 +103,13 @@ export class HumanizerClient extends BaseHumanizer {
         return result;
     };
 
+    /**
+     * Edits the current time.
+     */
     #editTime(time: string[], milliseconds: number, units_per_lang: LanguageCreator & Record<any, any>) {
         let count = 0;
-        let index = 0;
-        for (let unit of this.units) {
+        for (let index = 0; index < this.units.length; index++) {
+            const unit = this.units[index];
             // ...
             if (typeof(this.config.max_units) === "number" && this.config.max_units <= count) 
                 continue;
@@ -123,33 +127,15 @@ export class HumanizerClient extends BaseHumanizer {
                 milliseconds %= Factors[unit];
                 if (value > 0) {
                     time.push(
-                        `${value.toString().replace(".", this.config?.decimal || ".")} ${
-                            units_per_lang[unit][value === 1 ? 0 : 1]
+                        `${value.toString().replace(".", this.config?.decimal || ".")}${
+                            this.config.pre_spacer ? this.config.pre_spacer : ""
+                        } ${units_per_lang[unit][value === 1 ? 0 : 1]}${
+                            this.config.post_spacer ? this.config.post_spacer : ""
                         }`
                     );
                     count++;
                 };
             };
-            index++;
         };
     };
 };
-
-/* @test
-const hm = new HumanizerClient({
-    default_format: {
-        milliseconds: true,
-        seconds: false,
-        minutes: false,
-        hours: false,
-        weeks: true,
-        months: false,
-        years: true,
-        lustrums: false,
-        decades: false,
-        days: false
-    },
-    language: "en"
-});
-console.log(hm.humanizeMilliseconds(1000 * 60 * 20));
-*/

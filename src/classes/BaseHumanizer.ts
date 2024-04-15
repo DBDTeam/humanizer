@@ -1,5 +1,5 @@
-import { Langs, Units } from '../Constants';
-import { HumanizerConfig } from '@types';
+import { Langs, Units } from "../Constants";
+import { HumanizerConfig } from "@types";
 import { ConfigError } from "./Errors";
 
 /**
@@ -68,25 +68,12 @@ export class BaseHumanizer {
             // Max units validation.
             if (options.max_units && (options.max_units > this.units.length || options.max_units < 1))
                 throw new ConfigError(`max_units must be between 2 and ${this.units.length}, got ${max_decimal}.`);
+
+            // Pre-spacer and post-spacer validations.
+            if (options.pre_spacer && typeof options.pre_spacer !== "string")
+                throw new ConfigError(`Options#pre_spacer expected a string, got a ${typeof(options.pre_spacer)}.`);
+            if (options.post_spacer && typeof options.post_spacer !== "string")
+                throw new ConfigError(`Options#post_spacer expected a string, got a ${typeof(options.post_spacer)}.`);
         }
     }
 };
-
-/* @test
-const hm = new BaseHumanizer({
-    default_format: {
-        milliseconds: true,
-        seconds: false,
-        minutes: false,
-        hours: false,
-        weeks: true,
-        months: false,
-        years: true,
-        lustrums: false,
-        decades: false,
-        days: "hola"
-    }
-});
-const x = hm.config;
-console.log('IGNORE ->', x);
-*/
