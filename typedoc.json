@@ -1,0 +1,7 @@
+{
+    "out": "../humanize-docs",
+    "entryPoints": ["./src"],
+    "entryPointStrategy": "expand",
+    "plugin": ["typedoc-material-theme"],
+    "themeColor": "#FFE4B5",
+  }

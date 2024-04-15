@@ -1,5 +1,5 @@
-import { HumanizerConfigBuilder } from "./builders/HumanizerConfigBuilder";
-import { LanguageCreatorBuilder } from "./builders/LanguageCreatorBuilder";
+import { HumanizerConfigBuilder } from "./classes/Builders/HumanizerConfigBuilder";
+import { LanguageCreatorBuilder } from "./classes/Builders/LanguageCreatorBuilder";
 import { HumanizerClient } from "./classes/HumanizerClient";
 import { HumanizerConfig } from "@types";
 

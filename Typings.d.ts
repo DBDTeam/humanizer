@@ -155,7 +155,17 @@ export interface HumanizerConfig {
     * 3 hours, 17 minutes, 3 seconds => (in the case of max_units = 2) 3 hours, 17 minutes.
     */
     max_units?: number;
+    /**
+     * The post spacer when humanizing.
+     * @example
+     * 17 minutos, 3 segundos => (in the case of post_humanizer='enteros') 17 minutos enteros, 3 segundos enteros.
+     */
     post_spacer?: string;
+    /**
+     * The pre spacer when humanizing.
+     * @example
+     * 3 hours, 17 minutes, 3 seconds => (in the case of pre_humanizer='whole') 3 whole hours, 17 whole minutes, 3 whole seconds.
+     */
     pre_spacer?: string;
 };
 /* ------------------ End ------------------ */
