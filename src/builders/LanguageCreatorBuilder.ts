@@ -51,7 +51,7 @@ export class LanguageCreatorBuilder {
 
         this.days = [singular, plural]
     }
-    
+
     setWeeks(v: string[]) {
         const [singular, plural] = v
 

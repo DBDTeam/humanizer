@@ -1,7 +1,6 @@
-import { Languages } from "../../typings/enums/Languages";
-import { Formats } from "../../typings/interfaces/Humanizer"
+import { Formats, Languages } from "@types";
 
-export default class HumanizerConfigBuilder {
+export class HumanizerConfigBuilder {
     default_format?: Formats;
     enable_comma?: boolean;
     latest_separator?: string;
