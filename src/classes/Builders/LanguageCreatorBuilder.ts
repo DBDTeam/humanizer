@@ -23,62 +23,72 @@ export class LanguageCreatorBuilder {
     }
 
     setMilliseconds(v: string[]) {
-        const [singular, plural] = v
-
-        this.milliseconds = [singular, plural]
+        const [singular, plural] = v;
+        
+        this.milliseconds = [singular, plural];
+        return this;
     }
 
     setSeconds(v: string[]) {
-        const [singular, plural] = v
-
-        this.seconds = [singular, plural]
+        const [singular, plural] = v;
+        
+        this.seconds = [singular, plural];
+        return this;
     }
 
     setMinutes(v: string[]) {
-        const [singular, plural] = v
-
-        this.minutes = [singular, plural]
+        const [singular, plural] = v;
+        
+        this.minutes = [singular, plural];
+        return this;
     }
 
     setHours(v: string[]) {
-        const [singular, plural] = v
-
-        this.hours = [singular, plural]
+        const [singular, plural] = v;
+        
+        this.hours = [singular, plural];
+        return this;
     }
 
     setDays(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.days = [singular, plural]
+        this.days = [singular, plural];
+        return this;
     }
 
     setWeeks(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.weeks = [singular, plural]
+        this.weeks = [singular, plural];
+        return this;
     }
 
     setMonths(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.months = [singular, plural]
+        this.months = [singular, plural];
+        return this;
     }
 
     setYears(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.years = [singular, plural]
+        this.years = [singular, plural];
+        return this;
     }
 
     setLustrums(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.lustrums = [singular, plural]
+        this.lustrums = [singular, plural];
+        return this;
     }
 
     setDecades(v: string[]) {
-        const [singular, plural] = v
+        const [singular, plural] = v;
 
-        this.decades = [singular, plural]
+        this.decades = [singular, plural];
+        return this;
     }
 }
