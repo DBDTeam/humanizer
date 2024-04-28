@@ -23,38 +23,47 @@ export class HumanizerConfigBuilder {
     }
 
     setDefaultFormat(config: Formats) {
-        this.default_format = config
+        this.default_format = config;
+        return this;
     }
 
     setEnableComma(condition: boolean = true) {
-        this.enable_comma = condition
+        this.enable_comma = condition;
+        return this;
     }
 
     setLatestSeparator(latest_separator: string) {
-        this.latest_separator = latest_separator
+        this.latest_separator = latest_separator;
+        return this;
     }
 
     setLanguage(lang: Languages) {
-        this.language = lang
+        this.language = lang;
+        return this;
     }
 
     setMaxDecimals(v: number) {
-        this.max_decimal = v
+        this.max_decimal = v;
+        return this;
     }
 
     setDecimal(condition: boolean = true) {
-        this.decimal = condition
+        this.decimal = condition;
+        return this;
     }
 
     setMaxUnits(v: number) {
-        this.max_units = v
+        this.max_units = v;
+        return this;
     }
 
     setPostSpacer(v: string) {
-        this.post_spacer = v
+        this.post_spacer = v;
+        return this;
     }
 
     setPreSpacer(v: string) {
-        this.pre_spacer = v
+        this.pre_spacer = v;
+        return this;
     }
 }

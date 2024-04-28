@@ -1,4 +1,4 @@
-const { HumanizerClient } = require("../lib/classes/HumanizerClient");
+const { HumanizerClient } = require("../lib");
 
 const client = new HumanizerClient({
     default_format: {
